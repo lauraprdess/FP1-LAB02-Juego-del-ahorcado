@@ -17,7 +17,7 @@ def elige_palabra(fichero="palabras.txt"):
     return random.choice(palabras)
 
 
-def normalizar(cadena):
+def normalizar(cadena: str) -> str:
     """
     Normaliza una cadena de texto realizando las siguientes operaciones:
         - convierte a minúsculas
@@ -30,8 +30,8 @@ def normalizar(cadena):
     Devuelve:
       Cadena de texto con la palabra normalizada
     """
-    # TODO: Implementa esta función (y elimina la instrucción pass)
-    pass
+    cadena = cadena.lower().strip().replace("á", "a").replace("ä", "a").replace("é", "e").replace("ë", "e").replace("í","i").replace("ï", "i").replace("ó", "o").replace("ö", "o").replace("ú", "u").replace("ü", "u")
+    return cadena
 
 def enmascarar(palabra_secreta, letras_usadas=""):
     '''Devuelve una cadena de texto con la palabra enmascarada. 
@@ -44,8 +44,13 @@ def enmascarar(palabra_secreta, letras_usadas=""):
     Devuelve:
       Cadena de texto con la palabra enmascarada
     '''
-    # TODO: Implementa esta función (y elimina la instrucción pass)
-    pass
+    res = ""
+    for c in palabra_secreta:
+        if c in letras_usadas:
+            res += c
+        else:
+            res += "_"
+    return  res
 
 
 def ha_ganado(palabra_enmascarada):
@@ -57,11 +62,32 @@ def ha_ganado(palabra_enmascarada):
     Devuelve:
     - True si el jugador ha ganado, False en caso contrario
     '''
-    # TODO: Implementa esta función (y elimina la instrucción pass)
-    pass
+    return "_" not in palabra_enmascarada
 
 
-# TODO: Implementa la función mostrar_estado
+
+def mostrar_estado(palabra_enmascarada, letras_usadas , intentos_restantes):
+
+    print("Estado: ", " ".join(palabra_enmascarada))
+    if letras_usadas == "":
+        print("Letras usadas: ninguna")
+    else:
+        print("Letras usadas: ", letras_usadas)
+    print("Intentos restante: ", intentos_restantes)
+
+
+def pedir_letra(letras_usadas)
+    letra = input("Introduce una letra: ")
+    if (len(letra) > 1) or (letra.isdigit())
+        print("Tienes que introducir una única letra")
+        letra = input("Introduce una letra: ")
+    if letra in letras_usadas:
+        print("Esa letra ya la has usado anteriormente")
+        letra = input("Introduce una letra: ")
+    letra = letra.lower()
+    return letra
+
+
 
 # TODO: Implementa la función pedir_letra
 

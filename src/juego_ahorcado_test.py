@@ -15,11 +15,12 @@ def test_enmascarar():
     assert enmascarar("prueba", "prueba") == "prueba"
 
 def test_ha_ganado():
-    # TODO: Implementa esta función (y elimina la instrucción pass)
-    pass
+    assert ha_ganado("paython") == True
+    assert ha_ganado("p_____n") == False
+    assert ha_ganado("_______") == False
 
 
 test_normalizar()
-#test_enmascarar()
-#test_ha_ganado()
+test_enmascarar()
+test_ha_ganado()
 print("✅ Todas las pruebas han pasado correctamente.")
